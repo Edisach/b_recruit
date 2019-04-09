@@ -3,6 +3,7 @@
 
 #include "pch.h"
 #include <iostream>
+#include "Room.h"
 
 using namespace std;
 
@@ -16,8 +17,8 @@ int main()
 	// Begin by taking input and calculating floor area
 	cout << "Input width, length, height respectively" << endl;
 	cin >> width >> length >> height;
-	cout << width * length << " is the floor area" << endl;
-
+	Room r(width, length, height);
+	cout << r.Area() << endl;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
