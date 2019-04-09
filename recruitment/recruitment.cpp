@@ -8,6 +8,16 @@ using namespace std;
 
 int main()
 {
+	// Define dimensions
+	double width;
+	double length;
+	double height;
+
+	// Begin by taking input and calculating floor area
+	cout << "Input width, length, height respectively" << endl;
+	cin >> width >> length >> height;
+	cout << width * length << " is the floor area" << endl;
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
