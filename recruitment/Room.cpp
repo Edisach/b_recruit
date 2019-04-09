@@ -2,14 +2,21 @@
 #include "Room.h"
 #include <iostream>
 
-double width, length, height;
-
-Room::Room(double w, double l, double h) {
-	width = w;
-	length = l;
-	height = h;
+double Room::floor_area() {
+	return (width*length);
 }
 
-double Room::Area() {
-	return (width*length);
+double Room::volume()
+{
+	return (width*length*height);
+}
+
+double Room::paint_required()
+{
+	return PAINTPERM2 * wall_area();
+}
+
+double Room::wall_area()
+{
+	return 2 * (width * height + height * length);
 }

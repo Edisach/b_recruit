@@ -18,7 +18,9 @@ int main()
 	cout << "Input width, length, height respectively" << endl;
 	cin >> width >> length >> height;
 	Room r(width, length, height);
-	cout << r.Area() << endl;
+	cout << "Floor area is: " << r.floor_area() << "m^2" << endl;
+	cout << "Paint required: " << r.paint_required() << " litres" << endl;
+	cout << "Room volume: " << r.volume() << "m^3" << endl;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
