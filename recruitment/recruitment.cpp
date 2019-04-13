@@ -4,23 +4,34 @@
 #include "pch.h"
 #include <iostream>
 #include "Room.h"
+#include <sstream>
 
 using namespace std;
 
-int main()
+int main(int argc, char **argv)
 {
-	// Define dimensions
-	double width;
-	double length;
-	double height;
+	// Define dimension array
+	double dims[3]; // width, length, height
+	Room *r = nullptr;
 
-	// Begin by taking input and calculating floor area
-	cout << "Input width, length, height respectively" << endl;
-	cin >> width >> length >> height;
-	Room r(width, length, height);
-	cout << "Floor area is: " << r.floor_area() << "m^2" << endl;
-	cout << "Paint required: " << r.paint_required() << " litres" << endl;
-	cout << "Room volume: " << r.volume() << "m^3" << endl;
+	// If command line input given
+	if (argc == 4) {
+		for (int i = 1; i < 4; ++i) {
+			std::stringstream s_arg(argv[i]);
+			s_arg >> dims[i];
+		}
+		r = &Room(dims[1], dims[2], dims[3]);
+	}
+	// Else begin by taking input and calculating floor area
+	else {
+		cout << "Input width, length, height respectively" << endl;
+		cin >> dims[1] >> dims[2] >> dims[3];
+		r = &Room(dims[1], dims[2], dims[3]);
+	}
+	// Print calculated data
+	cout << "Floor area is: " << r->floor_area() << "m^2" << endl;
+	cout << "Paint required: " << r->paint_required() << " litres" << endl;
+	cout << "Room volume: " << r->volume() << "m^3" << endl;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
